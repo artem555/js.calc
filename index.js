@@ -1,40 +1,42 @@
-window.onload = function(e){
+function init() {
+  const firstInput = document.querySelector('.first-value');
+  const secondInput = document.querySelector('.second-value');
+  const result = document.querySelector('.res');
+  const controlsContainer = document.querySelector('.controls-container');
 
-    var inp1 = document.querySelector('input[name = num1]');
-    var inp2 = document.querySelector('input[name = num2]');
-    var span = document.querySelector('.res');
-
-    var buttons = document.querySelectorAll('input[type = button]');
-    for(i = 0; i < buttons.length; i++){
-        buttons[i].onclick = function(){
-            var op = this.getAttribute('data-op');
-            calcForm(op);
-        }
-    }
-
-
-function calcForm(op){
-    var a = parseInt(inp1.value);
-    var b = parseInt(inp2.value);
-    var res;
-
-    if(op === '+'){
-        res = a+b;
-    }
-    else if(op === '-'){
-        res = a-b;
-    }
-    else if(op === '/'){
-        res = a/b;
-    }
-    else if(op === '*'){
-        res = a*b;
-    }
-    else{
-        res = 'странна операция';
-    }
-
-    span.innerHTML = res;
-
-    }
+  controlsContainer.addEventListener(
+    'click',
+    (e) => outputResult(e, firstInput, secondInput, result)
+  );
 }
+
+function calc(op, a, b) {
+  switch (op) {
+    case 'sum':
+      return a + b;
+    case 'min':
+      return a - b;
+    case 'div':
+      return a / b;
+    case 'mul':
+      return a * b;
+    default:
+      return 'wrong operation';
+  }
+}
+
+function convertToNumber(value) {
+  return parseInt(value, 10) || 0;
+}
+
+function outputResult(e, firstInput, secondInput, result) {
+  const op = e.target.name;
+
+  result.textContent = calc(
+    op,
+    convertToNumber(firstInput.value),
+    convertToNumber(secondInput.value)
+  );
+}
+
+window.addEventListener('load', init);
