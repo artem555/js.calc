@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-			<meta name="viewport" content="width=device-width">
-			<link type="text/css" rel="stylesheet" href="./style.css">
-            <link type="text/javascript" rel="stylesheet" href="./index.js">
-			<title>NEW SITE</title>
-        </head>
-        <body>
-            <input type="text" name="num1"/>
-            <input type="button" name="sum" value="+" data-op="+"/>
-            <input type="button" name="min" value="-" data-op="-"/>
-            <input type="button" name="div" value="/" data-op="/"/>
-            <input type="button" name="mult" value="*" data-op="*"/>
-            <input type="text" name="num2"> 
-            =
-            <span class="res"></span>
-             
-
-        </body>
-        <script src="./index.js"></script>
-    </html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" rel="stylesheet" href="./style.css">
+    <link type="text/javascript" rel="stylesheet" href="./index.js">
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="controls-container">
+      <button type="button" name="sum">+</button>
+      <button type="button" name="min">-</button>
+      <button type="button" name="div">/</button>
+      <button type="button" name="mul">*</button>
+    </div>
+    <input type="text" class="first-value"/>
+    <input type="text" class="second-value"> 
+    <span>=</span>
+    <span class="res"></span>
+    <script src="./index.js"></script>
+  </body>
+</html>
